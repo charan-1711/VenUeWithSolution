@@ -15,7 +15,8 @@
         <label for="">Enter your username</label>
         <input type="text" name="username" placeholder="username" required>
         <label for="">Enter your password</label>
-      <input type="password" name="password" placeholder="Password" required>
+       <input type="password" name="password" placeholder="Password" required>
+       <button class="btn"><a href="login.php">Already have an account</a></button>
       <input type="submit"  value="Login">
     </form>
   </div>

@@ -25,6 +25,7 @@ if (isset($_SESSION['user_id'])) {
                         <!-- <li><a href="services.html">SERVICES</a></li> -->
                         <a href="index.php">HOME</a>
                         <a href="venues.php">VENUES</a>
+                        <a href="book.php">BOOK</a>
                         <a href="login.php">LOGIN</a>
                         <a href="signup.php">SIGN UP</a>
                     <?php endif; ?>
