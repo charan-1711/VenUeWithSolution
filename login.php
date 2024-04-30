@@ -9,11 +9,10 @@
 <body>
   <div class="login-container">
     <h2>Login</h2>
-    <form action="#" method="post">
-        
-      <input type="text" name="username" placeholder="email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="submit" value="Login">
+    <form action="controller\loginbackend.php" method="post">
+      <input type="email" name="l_email" placeholder="email" required>
+      <input type="password" name="l_password" placeholder="Password" required>
+      <input type="submit" name="l_user" value="Login">
     </form>
   </div>
 </body>

@@ -11,7 +11,7 @@
     <h2>Sign up</h2>
     <form action="controller/signupbackend.php" method="post">
         <label for="">Enter your email</label>
-        <input type="text" name="email" placeholder="email" required>
+        <input type="email" name="email" placeholder="email" required>
         <label for="">Enter your username</label>
         <input type="text" name="username" placeholder="username" required>
         <label for="">Enter your password</label>
