@@ -16,7 +16,7 @@
         <input type="text" name="username" placeholder="username" required>
         <label for="">Enter your password</label>
       <input type="password" name="password" placeholder="Password" required>
-      <input type="submit" value="Login">
+      <input type="submit"  value="Login">
     </form>
   </div>
 </body>
