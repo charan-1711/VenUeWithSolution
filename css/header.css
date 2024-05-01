@@ -4,22 +4,21 @@
 }
 
 .icon {
-    padding-top: 20px;
-    margin-left: 5px;
+    padding-top: 10px;
+    margin-left: 15px;
 }
 
 .logo {
     color: rgb(218, 233, 204);
     font-size: 45px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* font-family: "Micro 5 Charted", sans-serif; */
     padding: 15px;
     float: left;
     padding-top: 15px;
 }
 
 .menu {
-    padding-top: 55px;
+    padding-top: 70px;
 }
 
 a{
@@ -34,4 +33,26 @@ a{
 
 a:hover {
     color: rgb(3, 102, 102);
+}
+
+.btn{
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 19px;
+    cursor: pointer;
+    
+}
+
+.btn:hover{
+    background: white;
+    
+}
+
+.btn a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }

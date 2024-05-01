@@ -15,3 +15,4 @@ define('BASE_URL', 'http://localhost/VenUeWithSolution/');
 // included main class
 require_once 'app/Main.php';
 require_once 'app/Admin.php';
+?>

@@ -3,6 +3,7 @@
 <head>
     <title>Venue With Solution</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/stylevenues.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +28,7 @@
                     </div>
                     <div class="back">
                         <p>Venue 1 Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <button class="btn"><a href="book.php">BOOK NOW</a></button>
+                        <button class="btn"><a href="signup.php">BOOK NOW</a></button>
                     </div>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                              VIP boxes and accessible seating address various requirements. 
                              The stage showcases professional lighting, sound, and expansive screens for enhanced engagement.
                               Subtle decor elements elevate the atmosphere, crafting an elegant venue for memorable occasions..</p>
-                        <button class="btn"><a href="book.php">BOOK NOW</a></button>
+                        <button class="btn"><a href="signup.php">BOOK NOW</a></button>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                         </div>
                         <div class="back">
                             <p>Venue 1 Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <button class="btn"><a href="book.php">BOOK NOW</a></button>
+                            <button class="btn"><a href="signup.php">BOOK NOW</a></button>
                         </div>
                     </div>
                 </div>

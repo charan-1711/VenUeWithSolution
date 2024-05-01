@@ -3,7 +3,7 @@
 <head>
     <title>Venue With Solution</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style1.css">
+    <!-- <link rel="stylesheet" href="css/style1.css"> -->
     <link rel="stylesheet" href="css/header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

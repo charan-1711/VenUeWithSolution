@@ -1,55 +1,3 @@
-*{
-    margin:0;
-    padding:0;
-    width: auto;
-    height: auto;
-}
-
-.back{
-    background-color: rgb(56, 151, 151);
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
-.navbar{
-    width: 1200px;
-    height: 75px;
-    margin: auto;
-}
-
-.icon{
-    width: 250px;
-    height: 70px;
-    float: left;
-    padding: 20px;
-    border-radius: 30px;
-    margin-left: 5px;
-}
-
-
-.logo{
-    color:rgb(218, 233, 204);
-    font-size: 45px;
-     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ; 
-    /* font-family: "Micro 5 Charted", sans-serif; */
-    padding: 15px;
-    float: left;
-    padding-top: 15px;   
-}
-
-.menu{
-    width: 1100;
-    float: left;
-    height: 10px;
-    padding: 70px;
-    padding-left: 300px;
-}
 
 ul{
     float: right;
@@ -111,17 +59,6 @@ ul li a:hover{
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin-left: 240px;
-    background-color: orange;
-    color: black;
-    border: none;
-    border-radius: 14px;
-    width: 150px;
-    cursor: pointer;
   }
   
   button:hover {

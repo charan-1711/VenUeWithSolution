@@ -9,7 +9,31 @@
       align-items: center;
       height: 100vh;
     }
-
+    .btn{
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: orange;
+      color: black;
+      border: none;
+      border-radius: 14px;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 12px;
+      cursor: pointer;
+      color: white;
+      /* transition: 0.3s ease; */
+  }
+  
+  .btn:hover{
+      background: white;
+      /* color: orange; */
+  }
+  
+  .btn a{
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+  }
     .login-container {
       background-color: #fff;
       padding: 20px;
@@ -44,3 +68,5 @@
     .login-container input[type="submit"]:hover {
       background-color: #45a049;
     }
+
+    
