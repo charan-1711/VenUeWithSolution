@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
     margin: 0;
     padding: 0;
     display: flex;
@@ -51,8 +51,10 @@ body {
   }
 
   .login-container input[type="submit"]:hover {
-    background-color: orange;
+    background-color: white;
   }
+
+  
 
   .login-container:hover{
     background: white;
@@ -64,3 +66,31 @@ body {
     color: black;
     font-weight: bold;
 }
+
+
+/* .btn{
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: orange;
+  color: black;
+  border: none;
+  border-radius: 14px;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  /* transition: 0.3s ease; */
+
+
+/* .btn:hover{
+  background: white;
+  /* color: orange; */
+
+
+/* .btn a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+} */
+ 

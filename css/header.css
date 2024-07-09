@@ -21,30 +21,17 @@
     padding-top: 70px;
 }
 
-a{
-    text-decoration: solid;
-    padding: 10px;
-    color: whitesmoke;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-    transition: 0.5s ease;
-    margin-bottom: 10px;
-}
-
-a:hover {
-    color: rgb(3, 102, 102);
-}
-
-.btn{
-    padding: 10px;
+.btn {
+    padding: 10px 10px;
     margin: 10px;
+    background-color: orange;
+    color: black;
     border: none;
-    width: 120px;
+    border-radius: 14px;
+    width: 200px;
     cursor: pointer;
-    border-radius: 19px;
-    cursor: pointer;
-    
-}
+    font-weight:bolder;
+  }
 
 .btn:hover{
     background: white;
@@ -55,4 +42,40 @@ a:hover {
     text-decoration: none;
     color: black;
     font-weight: bold;
+}
+
+a{
+    text-decoration: solid;
+    padding: 10px;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    transition: 0.5s ease;
+    margin-bottom: 10px;
+}
+
+/* a:hover {
+    color: rgb(3, 102, 102);
+} */
+
+.cnt{
+    padding: 10px 20px;
+    margin-top:0px;
+    margin-left: 80px;
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 14px;
+    width: 150px;
+    cursor: pointer;
+}
+
+    .cnt a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    }
+
+.cnt:hover{
+    background: white;
 }

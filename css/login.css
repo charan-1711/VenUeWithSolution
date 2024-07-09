@@ -1,15 +1,12 @@
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .btn{
+.log {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 30px;
+  padding-top: 10px;
+}
+
+    /* .btn{
       padding: 10px 20px;
       margin-left: 10px;
       background-color: orange;
@@ -21,25 +18,28 @@
       border-radius: 12px;
       cursor: pointer;
       color: white;
-      /* transition: 0.3s ease; */
-  }
+       transition: 0.3s ease; 
+  } */
   
-  .btn:hover{
+  /* .btn:hover{
       background: white;
-      /* color: orange; */
+     color: orange; 
   }
   
   .btn a{
       text-decoration: none;
       color: black;
       font-weight: bold;
-  }
+  } */
+
     .login-container {
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       width: 500px;
+      margin-top:100px;
+      margin-left: 430px;
     }
 
     .login-container h2 {
@@ -59,14 +59,22 @@
     }
 
     .login-container input[type="submit"] {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: orange;
+        color: black;
+        border: none;
+        border-radius: 14px;
+        width: 150px;
+        cursor: pointer;
+        font-weight: bold;
     }
 
     .login-container input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color: white;
     }
 
-    
+
+.sign a{
+  color:black;
+}

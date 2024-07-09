@@ -1,16 +1,15 @@
 *{
-    margin:0;
-    padding:0;
+    margin:5px;
+    padding:0px;
 }
 
 .index{
     width:100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)100%,rgba(0, 0, 0, 0)100%),url(../Image/Temple+bay+Mahabalipuram++Telugu+Wedding10.jpeg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)100%,rgba(0, 0, 0, 0)100%),url(../Image/homepage.jpeg);
     background-position: center;
     background-size: cover;
     height: 109vh;
 }
-
 
 
 .content{
@@ -22,6 +21,7 @@
     font-size: 30px;
     /* background-color: rgb(152, 238, 219); */
     background: linear-gradient(to top, rgba(205, 199, 199, 0)50%,rgba(231, 224, 224, 0)50%);
+    padding-top: 0px;
 }
 
 .par{
@@ -39,32 +39,9 @@
     font-size: 50px;
     padding-right: 20px;
     color: #62f0f0  ;
-    margin-top: 9%;
+    margin-top: 20px;
     letter-spacing: 2px;
     margin-left: 80px;
-}
-
-.content .contact{
-    width: relative;
-    height: 40px;
-    background: rgb(230, 155, 6);
-    border: none;
-     margin-bottom: 10px; 
-    margin-left: 20px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-     transition: 0.5s ease; 
-}
-
-.content .contact a{
-    text-decoration: none;
-    color: rgb(239, 231, 231);
-    /* transition: 0.3s ease;  */
-}
-
-.cn:hover{
-    background: white;
 }
 
 .content span{
@@ -72,95 +49,7 @@
     font-size: 60px;
 }
 
-/* .form{
-    width: 250px;
-    height: 380px;
-    /* background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%); */
-    /* position: absolute;
-    top: -20px;
-    left: 870px;
-    transform: translate(0%,-5%);
-    border-radius:10px;
-    padding: 25px;
-     background-color: bisque; 
-} */ 
-
-/* .form h2{
-    width: 220px;
-    font-family: sans-serif;
-    text-align: center;
-    color: rgba(6, 131, 131, 0.521);
-    font-size: 22px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 2px;
-    padding: 10px;
-}
-
-.form input{
-    width: 240px;
-    height: 35px;
-    background: transparent;
-    border-bottom: 1px solid rgb(4, 41, 41) ;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    color: white;
-    font-size: 20px;
-    letter-spacing: 1px;
-    font-family: sans-serif;
-}
-
-.form input:focus{
-    outline: none;
-} */
-
-::placeholder{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-/* .form .link{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
-.form .link .a{
-    text-decoration: none;
-    color: aqua;
-}
-
-.liw{
-    padding-top: 15px;
-    padding-bottom: 10px;
-    text-align: center;
-} */
-
 .back{
-    background-color: rgb(73, 165, 165);
+    background-color: rgb(28 78 78);
 }
 
-.AUDAC{
-    width:350px;
-    height: 350px;
-    border-radius: 10px;
-    border-color: white;
-}
-
-.AUDNONAC{
-    width:350px;
-    height: 350px;
-    border-radius: 10px;
-    border-color: white;
-}
-h4{
-    font-family: 'Times New Roman';
-    font-size: 50px;
-    padding-right: 20px;
-    margin-top: 9%;
-    letter-spacing: 2px;
-    color: rgb(236, 144, 58);
-}

@@ -1,0 +1,584 @@
+<?php
+require '../config.php';
+$admin = new Admin();
+
+// Check if the POST data is set
+if (isset($_POST["email"]) && isset($_POST["password"])) {
+    // Sanitize user input
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
+    // Check if the email already exists in the database
+    $stmt = $admin->ret("SELECT * FROM `users` WHERE `u_email`='$email'");
+    $num = $stmt->rowCount();
+    if ($num > 0) {
+        echo "<script>alert('Email already exists'); window.location='../signup.php'; </script>";
+        exit(); // Terminate script execution after redirecting
+    } else {
+        // Insert new user into the database
+        $stmt = $admin->cud("INSERT INTO `users`(`username`, `u_email`, `password`) VALUES ('$username','$email','$password')", "saved");
+
+        echo "<script>alert('User added successfully'); window.location='../login.php'; </script>";
+        exit(); // Terminate script execution after redirecting
+    }
+} else {
+    // Redirect user to the signup page if the required fields are not provided
+    header('Location: ' . BASE_URL . 'signup.php');
+    exit();
+}
+
+
+
+
+
+
+
+
+//chatgpt
+
+<?php
+// Start session
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Check if the logged-in user is admin
+if ($_SESSION["role"] !== "admin") {
+    echo "You are not authorized to view this page.";
+    exit();
+}
+
+// Database connection
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$database = "your_database";
+
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Fetch all records of logged-in users
+$sql = "SELECT * FROM users";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // Display records
+    echo "<h2>Users</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>ID</th><th>Username</th><th>Email</th></tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>".$row["id"]."</td>";
+        echo "<td>".$row["username"]."</td>";
+        echo "<td>".$row["email"]."</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No users found.";
+}
+
+mysqli_close($conn);
+?>
+
+
+
+
+include '../config.php'; // Include the configuration file
+$admin = new Admin(); // Instantiate the Admin class
+
+if (isset($_POST['l_user'])) {
+    $uemail = $_POST['l_email']; // Get the email from the form
+    $upass = $_POST['l_password']; // Get the password from the form
+
+    // Retrieve user data from the database based on the provided email
+    $stmt = $admin->ret("SELECT * FROM `users` WHERE `u_email`='$uemail'");
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $num = $stmt->rowCount();
+
+    if ($num > 0) {
+        // User found in the database
+        $db_pass = $row['password']; // Fetch password from the database
+
+        // Check if the provided password matches the one stored in the database
+        if ($upass === $db_pass) {
+            $id = $row['user_id']; // Get user ID
+            $_SESSION['user_id'] = $id; // Set user ID in session
+
+            // Redirect user to the specified page after successful login
+            echo "<script>alert('Login successful'); window.location='../index.php'</script>";
+        } else {
+            // Password incorrect
+            echo "<script>alert('Email or password incorrect!'); window.location='../login.php'</script>";
+        }
+    } else {
+        // No user found
+        echo "<script>alert('Email or password incorrect!'); window.location='../login.php'</script>";
+    }
+} else {
+    // Redirect to the login page if form fields are not submitted
+    echo "<script>alert('Enter input fields'); window.location='../login.php'</script>";
+    exit(); // Exit to prevent further execution
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//header.php
+
+
+<?php
+include 'config.php';
+
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    $uid = $_SESSION['user_id'];
+    $stmt = "SELECT * FROM `users` WHERE 'user_id'='$uid'";
+    $result = mysqli_query($conn, $stmt);
+    $row = mysqli_fetch_assoc($result);
+}
+?>  
+
+    <div class="navbar">
+                <div class="icon">
+                    <h2 class="logo">VenUWithSoln</h2>
+                </div>
+    
+                <div class="menu">
+
+                <?php if (isset($row['user_id'])): ?>
+                        <a href="index.php">HOME</a>
+                        <a href="venues.php">VENUES</a>
+                        <a href="book.php">BOOK</a>
+                        <?php if($row['u_email'] === 'admin@admin.com') {?>
+                        <a href="admin.php">Admin</a>
+                        <?php } ?>
+                        <!-- <button onclick="window.location.href='controller/u_logout.php'" class="btn">LOG OUT</button> -->
+                        <button class="btn"><a href="" class="logBtn">LOG OUT</a></button> 
+                        <div class="user">
+                            <h1 class="us">Welcome
+                            <!-- <a href="userProfile.php"></a> -->
+                            <?php echo $row['username']; ?></h1>
+                        </div>
+                     <?php else: ?>
+                        <a href="index.php">HOME</a>
+                        <a href="venueslogin.php">VENUES</a>
+                        <a href="login.php">BOOK</a>
+                        <!-- <button onclick="window.location.href='login.php'" class="btn">LOGIN</button> -->
+                        <a href="login.php"><button class="btn" >LOGIN</a></button> 
+                        <!-- <button onclick="window.location.href='signup.php'" class="btn">SIGN UP</button> -->
+                        <button class="btn"><a href="signup.php">SIGN UP</a></button> 
+                    <?php endif; ?>
+
+                </div>
+     </div>
+
+
+
+
+
+    //  logout
+    <?php
+    include '../config.php';
+    // $admin = new Admin();
+    
+    session_destroy();
+
+    unset($_SESSION['user_id']);
+    echo "<script>alert('logout successfull'); window.location='../index.php' </script> ";
+
+?>
+
+
+
+
+
+
+
+//ADMIN.PHP
+<?php 
+require_once ('config.php');
+
+$admin = new Admin();
+
+$sql = "SELECT * FROM bookings";
+$result = $admin->ret($sql);
+
+$arr  = $result->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<ul>
+    <?php 
+        foreach($arr as $key=>$value) { ?>
+            <li><?php echo $value['name']; ?></li>
+        <?php } ?>
+</ul>
+</body>
+</html>
+
+
+
+
+//bookbackend.php
+
+<?php
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect form data
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $event = $_POST['event'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $guests = $_POST['guests'];
+
+    // You can add additional validation and sanitization here
+
+    // Connect to your database (assuming you're using MySQL)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "venuedbweb";
+
+    // Create connection
+    $conn =  mysqli_connect($servername, $username, $password, $dbname);
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Prepare SQL query to insert data into database
+    $sql = "INSERT INTO bookings (`name`, phone, `event`, `date`, `time`, guests) VALUES ('$name', '$phone', '$event', '$date', '$time', '$guests')";
+
+    // Execute SQL query
+// Execute SQL query
+    if (mysqli_query($conn, $sql) === TRUE) {
+        echo "Booking successful!";
+        echo "<script>location.href='../success.php'</script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+
+    // Close connection
+    $conn->close();
+}
+?>
+
+
+
+//details.php
+<?php
+// Display bookings if the logged-in email ID is admin@admin.com
+include 'config.php';
+
+if (isset($_SESSION['user_id'])) {
+    $uid = $_SESSION['user_id'];
+    $stmt = "SELECT * FROM `users` WHERE `user_id`='$uid'";
+    $result = mysqli_query($conn, $stmt);
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['u_email'] === 'admin@admin.com') {
+        $bookings_query = "SELECT * FROM bookings";
+        $bookings_result = mysqli_query($conn, $bookings_query);
+?>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Guests</th>
+    </tr>
+
+    <?php while ($booking_row = mysqli_fetch_assoc($bookings_result)): ?>
+        <tr>
+            <td><?php echo $booking_row['name']; ?></td>
+            <td><?php echo $booking_row['phone']; ?></td>
+            <td><?php echo $booking_row['event']; ?></td>
+            <td><?php echo $booking_row['date']; ?></td>
+            <td><?php echo $booking_row['time']; ?></td>
+            <td><?php echo $booking_row['guests']; ?></td>
+        </tr>
+    <?php endwhile; ?>
+</table>
+
+<?php
+        mysqli_close($conn);
+    }
+}
+?>
+
+
+//details php new
+
+<?php
+// Start session
+// session_start();
+
+// Include config file
+include 'config.php';
+
+// Check if user is logged in
+if (isset($_SESSION['user_id'])) {
+    // Get user ID from session
+    $uid = $_SESSION['user_id'];
+
+    // Fetch user data
+    $stmt = "SELECT * FROM `users` WHERE `user_id`='$uid'";
+    $result = mysqli_query($conn, $stmt);
+
+    // Check if user exists and has admin privileges
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        // Check if user has admin privileges
+        if ($row['u_email'] === 'admin@admin.com') {
+            // Query to fetch bookings
+            $bookings_query = "SELECT * FROM bookings";
+            $bookings_result = mysqli_query($conn, $bookings_query);
+
+            if ($bookings_result && mysqli_num_rows($bookings_result) > 0) {
+                ?>
+                 <?php
+            } else {
+                echo "No bookings found.";
+            }
+        } else {
+            echo "You do not have permission to view this page.";
+        }
+    } else {
+        echo "User not found.";
+    }
+} else {
+    echo "You are not logged in.";
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Venue With Solution</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/style1.css">  
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Micro+5+Charted&display=swap" rel="stylesheet">
+</head>        
+    <body class="index"> 
+    <div class="main">
+    <?php include 'includes/header.php' ?>
+            <div class="tbl">
+                <table border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Guests</th>
+                    </tr>
+
+                    <?php
+                    // Output each booking
+                    while ($booking_row = mysqli_fetch_assoc($bookings_result)) {
+                        ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($booking_row['name']); ?></td>
+                            <td><?php echo htmlspecialchars($booking_row['phone']); ?></td>
+                            <td><?php echo htmlspecialchars($booking_row['event']); ?></td>
+                            <td><?php echo htmlspecialchars($booking_row['date']); ?></td>
+                            <td><?php echo htmlspecialchars($booking_row['time']); ?></td>
+                            <td><?php echo htmlspecialchars($booking_row['guests']); ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </table>
+            </div>
+        </div>    
+    </body>
+</html> 
+
+
+
+
+
+//delete
+<?php
+include 'config.php';
+?>
+<?php
+if (isset($_SESSION['bookingid'])) {
+    // Get user ID from session
+    $bid = $_SESSION['bookingid'];
+
+    // Fetch user data
+    $stmt = "DELETE FROM `bookings` WHERE `bookingid`='$bid'";
+    $result = mysqli_query($conn, $stmt);
+    if (mysqli_query($conn, $result)) {
+        echo "Deleted successfully!";
+        echo "<script>location.href='C:\xampp\htdocs\VenUeWithSolution\details.php'</script>";
+    }  
+}?>
+
+
+//details.php
+<?php
+include 'config.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Venue With Solution</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/details.css">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Micro+5+Charted&display=swap" rel="stylesheet">
+</head> 
+<body class="back">
+    <div class="main">
+    <?php include 'includes/header.php' ?>
+<?php
+
+// Check if user is logged in
+if (isset($_SESSION['user_id'])) {
+    // Get user ID from session
+    $uid = $_SESSION['user_id'];
+
+    // Fetch user data
+    $stmt = "SELECT * FROM `users` WHERE `user_id`='$uid'";
+    $result = mysqli_query($conn, $stmt);
+
+    // Check if user exists and has admin privileges
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        // Check if user has admin privileges
+        if ($row['u_email'] === 'admin@admin.com') {
+            // Query to fetch bookings
+            $bookings_query = "SELECT * FROM bookings";
+            $bookings_result = mysqli_query($conn, $bookings_query);
+
+            // Check if query executed successfully
+            if ($bookings_result) {
+                // Check if there are any bookings
+                if (mysqli_num_rows($bookings_result) > 0) {
+                    ?>
+                    <div class="tbl">
+                    <table>
+                        <tr>
+                            <th>PHONE</th>
+                            <th>Event</th>
+                            <th class="thdate">Date</th>
+                            <th>Time</th>
+                            <th>Guests</th>
+                        </tr>
+
+                        <?php
+                        // Output each booking
+                        while ($booking_row = mysqli_fetch_assoc($bookings_result)) {
+                            ?>
+                            <tr>  
+                                <td><?php echo htmlspecialchars($booking_row['phone']); ?></td>
+                                <td><?php echo htmlspecialchars($booking_row['event']); ?></td>
+                                <td class="thdate"><?php echo htmlspecialchars($booking_row['date']); ?></td>
+                                <td><?php echo htmlspecialchars($booking_row['time']); ?></td>
+                                <td><?php echo htmlspecialchars($booking_row['guests']); ?></td>
+                                <!-- <div class="deletebtn"> -->
+                        <td class="dlt">
+                            <button class="dltbtn" action="controller/deletebackend.php"><a href="details.php">DELETE</a></button>
+                                        <button class="dltbtn"><a href="modifybackend.php">MODIFY</a></button>
+                        </td>
+                         <!-- </div> -->
+                        </tr>
+                        <tr>
+                        
+                    </tr>
+                        <?php
+                        
+                     }
+                        ?>
+                    </table>
+                    </div>
+                    <?php
+                } else {
+                    echo "No bookings found.";
+                }
+            } else {
+                // Handle query execution error
+                echo "Error: " . mysqli_error($conn);
+            }
+        } else {
+            echo "You do not have permission to view this page.";
+        }
+    } else {
+        echo "User not found.";
+    }
+} else {
+    echo "You are not logged in.";
+}
+?>
+</div>
+</body>
+</html>
+
+//deletebackend
+// Get booking ID from session
+$del = "SELECT * FROM bookings WHERE `u_email`='$uemail'";
+$result = mysqli_query($conn, $dell);
+    
+
+    // Prepare and execute SQL statement to delete the booking
+    $stmt = "DELETE FROM `bookings` WHERE `bookings`.`bookingid`=`$bid`";
+    $result = mysqli_query($conn, $stmt);
+
+    // Check if the deletion was successful
+    if ($result) {
+        echo "Deleted successfully!";
+        // Redirect to details.php
+        echo "
+        <!-- <script>window.location.href='../details.php';</script>"; -->
+        exit(); // Stop further execution
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+<!-- } else { -->
+    echo "No booking ID found in session.";
+<!-- } -->
+?>

@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Micro+5+Charted&display=swap" rel="stylesheet">
 </head>
-<body class="bg">
-    <div class="navbar">
+<body class="back">
+    <div class="main">
        <?php include 'includes/header.php' ?>
     </div>
     <div class="ven">
@@ -22,11 +22,16 @@
             <div class="flip-container">
                 <div class="flipper">
                     <div class="front">
-                        <img src="Image/img7.jpeg" alt="">
-                        <h2>Venue 1</h2>
+                        <img src="Image\img4.jpeg" alt="">
+                        <h2>SRISHTI BANQUETES</h2>
                     </div>
                     <div class="back">
-                        <p>Venue 1 Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>The banquet hall exudes warmth with soft lighting and tasteful decorations, inviting guests to enjoy intimate gatherings. 
+                       Tables are arranged elegantly, creating a cozy atmosphere for mingling and conversation. The scent of delicious 
+                       cuisine drifts from the kitchen, teasing taste buds and building anticipation for the feast to come.
+                        Guests find themselves surrounded by an ambiance of celebration and camaraderie, as laughter and joy fill the air.
+                        It's a space where memories are made, where friends and family come together to share in moments of happiness and 
+                        togetherness.</p>
                         <button class="btn"><a href="book.php">BOOK NOW</a></button>
                     </div>
                 </div>
@@ -38,8 +43,8 @@
             <div class="flip-container">
                 <div class="flipper">
                     <div class="front">
-                        <img src="Image/img9.jpg" alt="">
-                        <h2>Venue 1</h2>
+                        <img src="Image\img8.jpeg" alt="">
+                        <h2>SARAYU AUDITORIUM</h2>
                     </div>
                     <div class="back">
                         <p>The auditorium, accommodating 3000 with AC, radiates sophistication, 
@@ -59,11 +64,11 @@
                 <div class="flip-container">
                     <div class="flipper">
                         <div class="front">
-                            <img src="Image/img10.jpg" alt="">
-                            <h2>Venue 1</h2>
+                            <img src="Image\outdoor.jpg" alt="">
+                            <h2>SAMBHRAMA</h2>
                         </div>
                         <div class="back">
-                            <p>Venue 1 Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Nestled amidst nature's embrace, our outdoor venue offers a picturesque setting for your events. Surrounded by lush greenery and fragrant blooms, it's a sanctuary of serenity. From weddings to corporate retreats, every occasion is elevated by the natural beauty that envelops us. With versatile spaces tailored to your needs, whether under the open sky or beneath a canopy of trees, your event will be imbued with charm and tranquility. Let the rustle of leaves and the gentle breeze be the backdrop to your memorable moments, as you create unforgettable experiences in the embrace of nature's splendor.</p>
                             <button class="btn"><a href="book.php">BOOK NOW</a></button>
                         </div>
                     </div>
@@ -72,38 +77,3 @@
         </div>
 </body>
 </html>
-
-
-
-
-
-
-             
-            <!-- </div>
-                <div class="image">
-                    <h4>RESERVE YOUR PERFECT VENUE FOR YOUR DREAM EVENT</h4>
-                    <div class="scroll-container">
-                        <div class="venue1">
-                            <img src="img14.png" alt="">
-                            <p>The auditorium, accommodating 3000 with AC, radiates sophistication, 
-                                featuring plush, tiered seating encircling a central. 
-                                An advanced air conditioning system ensures a comfortable environment.
-                                 VIP boxes and accessible seating address various requirements. 
-                                 The stage showcases professional lighting, sound, and expansive screens for enhanced engagement.
-                                  Subtle decor elements elevate the atmosphere, crafting an elegant venue for memorable occasions.</p>
-                            <button class="btn"><a href="book.html">BOOK NOW</a></button>
-                        </div>
-                        <div class="venue2">
-                            <img src="img12.jpeg" alt="">
-                            <p>The auditorium, accommodating 3000 with AC, radiates sophistication, featuring plush, tiered seating encircling a central. An advanced air conditioning system ensures a comfortable environment. VIP boxes and accessible seating address various requirements. The stage showcases professional lighting, sound, and expansive screens for enhanced engagement. Subtle decor elements elevate the atmosphere, crafting an elegant venue for memorable occasions.</p>
-                            <button class="btn"><a href="book.html">BOOK NOW</a></button>
-                        </div>
-                        <div class="venue3">
-                            <img src="img9.jpg" alt="">
-                            <p>The auditorium, accommodating 3000 with AC, radiates sophistication, featuring plush, tiered seating encircling a central. An advanced air conditioning system ensures a comfortable environment. VIP boxes and accessible seating address various requirements. The stage showcases professional lighting, sound, and expansive screens for enhanced engagement. Subtle decor elements elevate the atmosphere, crafting an elegant venue for memorable occasions.</p>
-                            <button class="btn"><a href="book.html">BOOK NOW</a></button>
-                        </div>
-                    </div>
-                </div>
-</body>
-</html> -->

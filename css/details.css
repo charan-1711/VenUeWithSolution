@@ -1,0 +1,69 @@
+.tbl{
+    margin-top:30px;
+    margin-left: 0px;
+    padding:2px;
+    width:1067px;
+    height:auto;
+    background-color: rgba(145, 25, 236, 0.218);
+}
+
+th{
+    padding:15px 80px;
+    background-color:rgb(26, 12, 47);
+    color:white;
+    border: solid black;
+    font-family: Arial;
+    font-weight: bolder;
+}
+
+#thdate{
+    width: 2000px;
+
+
+}
+td{
+    padding:10px 10px;
+    background-color:rgb(143, 224, 249);
+    border:solid black;;
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} 
+
+.deletebtn
+{
+    background-color:black;
+    display: flex;
+    margin-left:1100px; 
+}
+
+td.dlt{
+    background-color: transparent;
+    border: none;
+    padding-left:0px;
+}
+td.mod{
+    background-color: transparent;
+     border: none;
+     padding-left:0px;
+ }
+
+.dltbtn {
+    padding: 10px 8px;
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight:bolder;
+  }
+
+.dltbtn:hover{
+    background: white;
+    
+}
+
+.dltbtn a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
